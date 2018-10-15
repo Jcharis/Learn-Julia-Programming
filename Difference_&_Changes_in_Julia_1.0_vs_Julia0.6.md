@@ -1,30 +1,36 @@
 ## Changes Between Julia0.6 and Julia 1.0
 
 #### Julia 0.6 vs Julia 1.0
+- New Package System (Pkg3)
+- Named Tuples
+- Range
+- Changes in Scope of Variable for `for Loops`
+- Destructuring
+##### The Differences
 
 ### Output 
-readline(STDIN) v.0.6
-readline(stdin) v.1
+`readline(STDIN)` v.0.6
+`readline(stdin)` v.1
 
 
 #### Range
-range(1,10) v.0.6
-range(1,stop=10) v.1.0
+`range(1,10)` v.0.6
+`range(1,stop=10)` v.1.0
 
 
 ### Package
-Pkg.add("")
-Pkg.update("")
-PkgDev
-Pkg.status
+`Pkg.add("")`
+`Pkg.update("")`
+`PkgDev`
+`Pkg.status`
 
 #### v.1
-] 
-add Packagename
-update Packagename
-up Pkgname
-status 
-generate
+] to Pkg Mode 
+`add Packagename`
+`update Packagename`
+`up Pkgname`
+`status `
+`generate`
 #### using Pkg 
 - If you want to still use the old method for Pkgs
 
@@ -37,8 +43,8 @@ The pair operator `=>` is now broadcastable as `.=>` which was previously a pars
 The syntax for parametric methods, `function f{T}(x::T)`, has been
 changed to `function f(x::T) where {T}`
 
-function f{T}(x::T) v.06
-function f(x::T) where {T}
+`function f{T}(x::T)` v.06
+`function f(x::T) where {T}`v.1.0
 
 
 ### Parsing of <|
@@ -76,7 +82,17 @@ Parsed and lowered forms of type definitions have been synchronized with the
  	each loop iteration,
  	    matching the behavior of `for` loops.
 
+### Vectors
+`Vector(N)` v.0.6
+`Vector(undef,N)` v.1.0
+`Vector{Int}(3)`v.0.6
+`Vector{Int}(undef,3)`v.1.0
 
+### Matrices
+`Matrix(N)` v.0.6
+`Matrix(undef,N)` v.1.0
+`Matrix{Type}(x,y)`v.0.6
+`Matrix{Type}(undef,x,y)`v.1.0
 
 ### Importall
 importall v.0.6
@@ -149,10 +165,10 @@ The `fieldnames` and `propertynames` functions now return a tuple rather than an
  	nd
  	    `axes(a, d)
 
-###whos
+### whos
  `whos` has been renamed `varinfo`, and now returns a markdown table instead 
- 	of printing
- 	    output ([#12131]).
+ 	of printing output ([#12131]).
+	
 
 ## RowVector
  	  * Uninitialized `RowVector` constructors of the form `RowVector{T}(shape...)` 
@@ -246,7 +262,8 @@ The operating system identification functions: `is_linux`, `is_bsd`, `is_app
  	tpow`/`prevpow` functions.
 
 
-
+### workspace
+ - Removed
 
 ##### Credits
  - Fossies.com
